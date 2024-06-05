@@ -1,0 +1,33 @@
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import image from "../../../images/can-dogs-get-fleas-from-grass.jpg";
+import Header1 from "../../../components/Header1";
+function EmpHome() {
+  const { t, i18n } = useTranslation();
+  const [langLoaded, setLangLoaded] = useState(false);
+  useEffect(() => {
+    const storedLang = localStorage.getItem("lang");
+    // console.log("sdfsd", typeof ());
+    if (storedLang && !langLoaded) {
+      i18n.changeLanguage(storedLang);
+      setLangLoaded(true); // Set language loaded to true to avoid re-render loop
+    }
+  });
+  return (
+    <div className="body" style={{ height: "100vh", width: "100%" }}>
+      <Header1 />
+      {/* <div className="text-center mt-4">{t("Line 1")}</div> */}
+      <div className="flex">
+        <img
+          src={image}
+          width={"100%"}
+          style={{ boxShadow: "4px 4px 8px 4px rgba(0, 0, 0, 0.2)" }}
+        />
+        <br></br>
+      </div>
+      <h1 className="text-center mt-5 hover">Welcome To Website</h1>
+    </div>
+  );
+}
+
+export default EmpHome;

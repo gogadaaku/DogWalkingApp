@@ -1,0 +1,17 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.hover {
+  text-decoration: overline;
+}
+.hover:hover {
+  text-decoration: underline;
+}

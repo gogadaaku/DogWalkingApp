@@ -1,0 +1,37 @@
+.about-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .about-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .about-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .duration-selector {
+    margin: 20px 0;
+  }
+  
+  .duration-label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .duration-dropdown {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .charge-display {
+    font-size: 18px;
+    color: #444;
+    margin-top: 20px;
+  }

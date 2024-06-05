@@ -1,0 +1,12 @@
+.card55 {
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+.bodyEmpWalk {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

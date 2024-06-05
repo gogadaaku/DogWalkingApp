@@ -1,0 +1,19 @@
+.body3 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.containerCard {
+  background-color: #f3f3f3;
+  padding: 30px;
+  width:auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+  height: auto;
+}.displaybutton{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
