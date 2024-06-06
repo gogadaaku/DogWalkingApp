@@ -59,7 +59,7 @@ function AllUsers() {
               style={{ backgroundColor: "black" }}
               className="btn btn-success"
             >
-              View Detail
+              {t("View Detail")}
             </button>
           </td>
           <td className="center">
@@ -71,7 +71,7 @@ function AllUsers() {
                 }}
                 className="btn btn-danger"
               >
-                Lock
+                {t("Lock")}
               </button>
             ) : (
               <button
@@ -80,7 +80,7 @@ function AllUsers() {
                 }}
                 className="btn btn-success"
               >
-                Unlock
+                {t("Unlock")}
               </button>
             )}
           </td>
@@ -120,7 +120,7 @@ function AllUsers() {
               marginBottom: 30,
             }}
           >
-            <h1 style={{ fontWeight: "lighter" }}>All Users</h1>{" "}
+            <h1 style={{ fontWeight: "lighter" }}>{t("All Users")}</h1>{" "}
             <button
               onClick={() => {
                 navigate(ROUTES.registerPage2.name);
@@ -175,8 +175,7 @@ function AllUsers() {
           >
             <img src={image} />
             <h1 style={{ fontWeight: "lighter" }}>
-              You Are Not Authorized To View This Content Please Login If You
-              Are Admin To View This Content
+              {t("You Are Not Authorized To View This Content Please Login If You Are Admin To View This Content")}
             </h1>
             <button
               onClick={() => {
@@ -189,7 +188,7 @@ function AllUsers() {
                 color: "burlywood",
               }}
             >
-              Go To Home Page
+              {t("Go To Home Page")}
             </button>
           </div>
         </>

@@ -65,7 +65,7 @@ function Login4() {
   return (
     <div>
       <Header1 />
-      <h1 className="text-center fontWeight">Login page</h1>
+      <h1 className="text-center fontWeight">{t("Login page")}</h1>
       <div className="displayflexwala">
         <Formik
           initialValues={{ email: "", password: "" }}
@@ -77,7 +77,7 @@ function Login4() {
               <div className="cardContainer">
                 <div className="form-group row col-lg-9">
                   <label style={{ padding: 6 }} className="col-lg-4">
-                    Email
+                    {t("Email")}
                   </label>
                   <div className="col-lg-8">
                     <Field
@@ -95,7 +95,7 @@ function Login4() {
                 </div>
                 <div className="form-group row col-lg-9">
                   <label style={{ padding: 6 }} className="col-lg-4">
-                    Password
+                    {t("Password")}
                   </label>
                   <div className="col-lg-8">
                     <Field
@@ -123,7 +123,7 @@ function Login4() {
                     margin: " 20px",
                   }}
                 >
-                  Login
+                  {t("Login")}
                 </button>
               </div>
             </Form>

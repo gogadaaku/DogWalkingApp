@@ -17,7 +17,7 @@ function AdminProfile() {
     getAdminDetails();
   }, []);
   const setPhoneNumber = (e) => {
-    setShowUpdateButton(true)
+    setShowUpdateButton(true);
     console.log(e);
     setAdminData({ ...adminData, phoneNumber: e });
   };
@@ -199,7 +199,7 @@ function AdminProfile() {
                         style={{ width: 200 }}
                         className="form-control button1"
                       >
-                        Change Password
+                        {t("Change Password")}
                       </button>{" "}
                       &nbsp;
                       <button
@@ -209,7 +209,7 @@ function AdminProfile() {
                         style={{ width: 200 }}
                         className="form-control button1"
                       >
-                        Edit
+                        {t("Edit")}
                       </button>
                       &nbsp;
                       <button
@@ -217,7 +217,7 @@ function AdminProfile() {
                         style={{ width: 200 }}
                         className="form-control button1"
                       >
-                        Update
+                        {t("Update")}
                       </button>
                     </>
                   )}

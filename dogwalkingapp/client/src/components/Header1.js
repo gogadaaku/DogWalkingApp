@@ -61,21 +61,21 @@ function Header1() {
     );
   }
   //Used for rendering Login and Logout Button
-  function renderLoginLogoutButton() {
-    return (
-      <div>
-        {roles == null ? (
-          <Link class="button-86" role="button" to={ROUTES.login1.name}>
-            {t("Login")}
-          </Link>
-        ) : (
-          <Link class="button-86" role="button" onClick={handleLogout}>
-            {t("Logout")}
-          </Link>
-        )}
-      </div>
-    );
-  }
+  // function renderLoginLogoutButton() {
+  //   return (
+  //     <div>
+  //       {roles == null ? (
+  //         <Link class="button-86" role="button" to={ROUTES.login1.name}>
+  //           {t("Login")}
+  //         </Link>
+  //       ) : (
+  //         <Link class="button-86" role="button" onClick={handleLogout}>
+  //           {t("Logout")}
+  //         </Link>
+  //       )}
+  //     </div>
+  //   );
+  // }
   // function changeHandler(e) {
   //   console.log(e);
   //   navigate(e.target.value);
@@ -235,7 +235,7 @@ function Header1() {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    {t("Management")}
+                    {t("Management")} 
                   </a>
                   <div class="dropdown-menu">
                     <Link class="dropdown-item " to={ROUTES.empMan.name}>
@@ -311,7 +311,7 @@ function Header1() {
               }}
               className="welcome-message"
             >
-              Welcome: {sessionStorage.getItem("email")}
+              {t("Welcome")}: {sessionStorage.getItem("email")}  
             </h6>
           )}
           {sessionStorage.getItem("role") == null ? (

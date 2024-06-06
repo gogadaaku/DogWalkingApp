@@ -39,10 +39,10 @@ function Contact1() {
         onChange={handleUserTypeChange}
         className="form-control"
       >
-        <option>{`${t("Select User Type")}`}</option>
-        <option value={t("Employee User")}>{`${t("Walker")}`}</option>
-        <option value={t("Client User")}>{`${t("Client")}`}</option>
-        <option value={t("Anonymous")}>{`${t("Anonymous")}`}</option>
+        <option>{t("Select User Type")}</option>
+        <option value={t("Employee User")}>{t("Walker")}</option>
+        <option value={t("Client User")}>{t("Client")}</option>
+        <option value={t("Anonymous")}>{t("Anonymous")}</option>
       </select>
     );
   };
@@ -62,23 +62,21 @@ function Contact1() {
   };
   let validationSchema = Yup.object().shape({
     FullName: Yup.string()
-      .min(2, `${t("Minimum 2 characters ")}`)
-      .required(`${t("Full Name is Required")}`),
+      .min(2, t("Minimum 2 characters "))
+      .required(t("Full Name is Required")),
     Email: Yup.string()
-      .email(`${"Invalid Email"}`)
-      .required(`${"Email Required!!!"}`),
+      .email(t("Invalid Email"))
+      .required(t("Email Required!!!")),
     MobileNumber: Yup.number()
-      .typeError(`${t("That doesn't look like a phone number")}`)
-      .positive(`${t("A phone number can't start with a minus")}`)
-      .integer(`${t("A phone number can't include a decimal point")}`)
-      .min(8, `${"Minimum 10 numbers are required"}`)
-      .required(`${t("A phone number is required")}`),
-    UserType: Yup.string().required(`${t("User Type is required")}`),
+      .typeError(t("That doesn't look like a phone number"))
+      .positive(t("A phone number can't start with a minus"))
+      .integer(t("A phone number can't include a decimal point"))
+      .min(8, t("Minimum 10 numbers are required"))
+      .required(t("A phone number is required")),
+    UserType: Yup.string().required(t("User Type is required")),
     Comments: Yup.string()
-      .min(100, `${t("Minimum 100 character are required")}`)
-      .required(
-        `${t("Comments are required so that we can understand your problem")}`
-      ),
+      .min(100, t("Minimum 100 character are required"))
+      .required(t("Comments are required so that we can understand your problem")),
   });
 
   const handlePhoneNumber = ({ field, form: { setFieldValue } }) => {
@@ -111,7 +109,7 @@ function Contact1() {
                 .then((d) => {
                   console.log(d.data);
                   Swal.fire({
-                    title: "Query Successfuly Submitted",
+                    title: t("Query Successfuly Submitted"),
                     icon: "success",
                   }).then(() => {
                     navigate(ROUTES.home.name);

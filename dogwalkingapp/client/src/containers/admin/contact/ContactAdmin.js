@@ -2,85 +2,83 @@ import React, { useState, useEffect } from "react";
 import Header1 from "../../../components/Header1";
 import axios from "axios";
 import "./Contact.css";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook for programmatic navigation
+import { useNavigate } from "react-router-dom";
 import ROUTES from "../../../navigations/Routes";
+import { useTranslation } from "react-i18next";
 
-// Define the ContactAdmin1 component
 function ContactAdmin() {
-  // State to hold query data, loading status, and any errors
+  const { t, i18n } = useTranslation();
   const [queryData, setQueryData] = useState({
     data: [],
     isLoading: true,
     error: null,
   });
-  const navigate = useNavigate(); // Initialize navigate function from useNavigate hook
+  const navigate = useNavigate();
 
-  // useEffect to fetch data on component mount
   useEffect(() => {
+    // Set language from session storage or default to 'en'
+    const currentLang = sessionStorage.getItem("lang") || 'en';
+    i18n.changeLanguage(currentLang);
+
     if (sessionStorage.getItem("role") === "Admin User") {
       const fetchData = async () => {
         try {
-          // Attempt to fetch data from the API
-          const response = await axios.get(
-            "https://localhost:7072/api/Contact"
-          );
-          // Update state with the fetched data
+          const response = await axios.get("https://localhost:7072/api/Contact");
           setQueryData({ data: response.data, isLoading: false, error: null });
         } catch (error) {
-          // Update state with error message if fetching fails
           setQueryData({ data: [], isLoading: false, error: error.message });
         }
       };
       fetchData();
     } else {
-      navigate(ROUTES.NotAuthorized.name); // Redirect if not admin
+      navigate(ROUTES.NotAuthorized.name);
     }
-  }, [navigate]); // Dependency on navigate to ensure it's available
+  }, [navigate, i18n]);
 
   if (sessionStorage.getItem("role") === "Admin User") {
     return (
       <div>
         <Header1 />
         <h1 className="center" style={{ fontWeight: "lighter" }}>
-          Guest Queries
+          {t('Guest Queries')}
         </h1>
         <div className="query-container">
           {queryData.isLoading ? (
-            <p>Loading...</p>
+            <p>{t('Loading...')}</p>
           ) : queryData.error ? (
-            <p>Error: {queryData.error}</p>
+            <p>{t('Error')}: {queryData.error}</p>
           ) : (
             queryData.data.map((item, index) => (
               <div key={index} className="card">
                 <table className="table table-bordered">
                   <tbody>
                     <tr>
-                      <th>ID</th>
+                      <th>{t('Id')}</th>
                       <td>{item.id}</td>
                     </tr>
                     <tr>
-                      <th>Full Name</th>
+                      <th>{t('Full Name')}</th>
                       <td>{item.fullName}</td>
                     </tr>
                     <tr>
-                      <th>Email</th>
+                      <th>{t('Email')}</th>
                       <td>{item.email}</td>
                     </tr>
                     <tr>
-                      <th>Mobile Number</th>
+                      <th>{t('Mobile Number')}</th>
                       <td>{item.mobileNumber}</td>
                     </tr>
                     <tr>
-                      <th>User Type</th>
+                      <th>{t('User Type')}</th>
                       <td>{item.userType}</td>
                     </tr>
                     <tr>
-                      <th>Comments</th>
+                      <th>{t('Comments')}</th>
                       <td>{item.comments}</td>
                     </tr>
                     {item.guestId && (
                       <tr>
-                        <th>Guest ID</th>
+                        <th>{t('Guest ID')}</th>
                         <td>{item.guestId}</td>
                       </tr>
                     )}
@@ -93,7 +91,6 @@ function ContactAdmin() {
       </div>
     );
   } else {
-    // This block will not be reached due to the redirect in useEffect
     return null;
   }
 }

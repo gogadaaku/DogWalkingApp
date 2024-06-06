@@ -8,7 +8,6 @@ function Home() {
   const [langLoaded, setLangLoaded] = useState(false);
   useEffect(() => {
     const storedLang = localStorage.getItem("lang");
-    // console.log("sdfsd", typeof ());
     if (storedLang && !langLoaded) {
       i18n.changeLanguage(storedLang);
       setLangLoaded(true); // Set language loaded to true to avoid re-render loop
@@ -17,7 +16,6 @@ function Home() {
   return (
     <div className="body" style={{ height: "100vh", width: "100%" }}>
       <Header1 />
-      {/* <div className="text-center mt-4">{t("Line 1")}</div> */}
       <div className="flex">
         <img
           src={image}
@@ -26,7 +24,7 @@ function Home() {
         />
         <br></br>
       </div>
-      <h1 className="text-center mt-5 hover">Welcome To Website</h1>
+      <h1 className="text-center mt-5 hover">{t("Welcome To Website")}</h1>
     </div>
   );
 }

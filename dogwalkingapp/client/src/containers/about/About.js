@@ -33,22 +33,23 @@ function About() {
     }
   }, [selectedDuration]);
 
-  return (<>
+  return (
+    <>
       <Header1 />
-    <div className="about-container">
-      <h1 className="about-title">{t("About Us")}</h1>
-      <p className="about-description">{t("Explore our Dog Walking services. Choose from 15, 30, or 45-minute walks. Pricing adjusts accordingly.")}</p>
-      <div className="duration-selector">
-        <label className="duration-label">{t("Select Duration:")}</label>
-        <select className="duration-dropdown" value={selectedDuration} onChange={e => setSelectedDuration(Number(e.target.value))}>
-          <option value={15}>15 min</option>
-          <option value={30}>30 min</option>
-          <option value={45}>45 min</option>
-        </select>
+      <div className="about-container">
+        <h1 className="about-title">{t("About Us")}</h1>
+        <p className="about-description">{t("Explore our Dog Walking services. Choose from 15, 30, or 45-minute walks. Pricing adjusts accordingly.")}</p>
+        <div className="duration-selector">
+          <label className="duration-label">{t("Select Duration:")}</label>
+          <select className="duration-dropdown" value={selectedDuration} onChange={e => setSelectedDuration(Number(e.target.value))}>
+            <option value={15}>{t("15 min")}</option>
+            <option value={30}>{t("30 min")}</option>
+            <option value={45}>{t("45 min")}</option>
+          </select>
+        </div>
+        <p className="charge-display">{t("Charge for this walk: ₹")}{charge}</p>
       </div>
-      <p className="charge-display">{t("Charge for this walk: ₹")}{charge}</p>
-    </div>
-  </>
+    </>
   );
 }
 
